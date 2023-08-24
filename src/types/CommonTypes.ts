@@ -9,3 +9,9 @@ export interface InputProps {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
+
+export interface ButtonProps {
+  type: string;
+  testid: string;
+  disabled?: boolean;
+}
