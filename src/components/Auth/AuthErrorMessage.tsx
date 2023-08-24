@@ -1,12 +1,8 @@
-import { memo } from 'react'
-import * as S from '../../styles/Auth.styled'
+import {memo} from 'react';
+import * as S from '../../styles/Auth.styled';
 
-export const AuthErrorMessage = memo(({ message }: { message: string }) => {
-  console.info('AuthErrorMessage re-rendering');
+export const AuthErrorMessage = memo(({message}: {message: string}) => {
+    console.info('AuthErrorMessage re-rendering');
 
-  return (
-    <S.AuthErrorMessageStyled>
-      {message}
-    </S.AuthErrorMessageStyled>
-  )
-})
+    return <S.AuthErrorMessageStyled>{message}</S.AuthErrorMessageStyled>;
+});
