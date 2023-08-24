@@ -1,7 +1,7 @@
 // component import 
 import { AuthTitle } from '../components/Auth/AuthTitle';
 import { AuthInput } from '../components/Auth/AuthInput';
-import { Button } from '../components/common/Button';
+import { Button } from '../components/Common/Button';
 import { AuthFooter } from '../components/Auth/AuthFooter';
 import * as S from '../styles/Auth.styled';
 
@@ -55,7 +55,7 @@ export const AuthContainer = ({ api, title, navigation, link, buttonType, footer
   return (
     <S.AuthContainerStyled>
       <AuthTitle title={title} />
-      <form>
+      <form onSubmit={handleSubmit}>
         <AuthInput
           email={email}
           handleEmail={handleEmail}
@@ -67,7 +67,7 @@ export const AuthContainer = ({ api, title, navigation, link, buttonType, footer
           type={buttonType}
           testid={testid}
           disabled={!emailValidation(email) || !passwordValidation(password)}
-          onClick={handleSubmit} />
+        />
       </form>
       <AuthFooter
         text={footerText}

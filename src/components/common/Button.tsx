@@ -1,19 +1,18 @@
 // react import 
 import { memo } from 'react';
 // type, style import 
-import { ButtonProps } from '../../types/AuthTypes';
+import { ButtonProps } from '../../types/CommonTypes';
 import * as S from '../../styles/Common.styled';
 
 
-export const Button = memo(({ type, testid, disabled, onClick }: ButtonProps) => {
+export const Button = memo(({ type, testid, disabled }: ButtonProps) => {
   console.info('Button re-rendering');
 
   return (
     <S.ButtonStyled
-      type='button'
+      type='submit'
       data-testid={testid}
       disabled={disabled}
-      onClick={onClick}
     >
       {type}
     </S.ButtonStyled>
