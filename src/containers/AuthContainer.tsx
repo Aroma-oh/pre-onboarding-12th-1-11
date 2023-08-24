@@ -12,6 +12,7 @@ import { emailValidation, passwordValidation } from '../utils/validation';
 // library import 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FormEvent } from 'react';
 
 // constant data import 
 import { EMAIL_VALIDATION_MSG, PASSWORD_VALIDATION_MSG } from '../constants/message';
@@ -46,8 +47,8 @@ export const AuthContainer = ({ api, title, navigation, link, buttonType, footer
   }, [isEmailValid, isPasswordValid]);
 
 
-  // 렌더링 최적화 실패
-  const handleSubmit = async () => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     await api(email, password);
     navigate(navigation);
   }
