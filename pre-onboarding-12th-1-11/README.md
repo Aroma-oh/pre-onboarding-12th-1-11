@@ -1,4 +1,5 @@
 # 📝 pre-onboarding-12th-1-11: Todo Project
+- 프로젝트 진행 기간: 2023.08.23-2023.08.25(3일)
 -   [개인 사전과제](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend)였던 Todo 프로젝트를 팀 best practice로 만들어 제출하는 것이 1주차 과제입니다.
 -   우선 개인 과제를 팀원에게 설명하며 best practice 방향을 설정했으며, 컨벤션을 맞춰가는 과정을 거쳤습니다. 
 -   그리고, 흩어져 있는 best practice를 모으기 위해서 Todo와 Auth 단위로 역할 분담을 하였고, Auth best practice를 만들게 되었습니다.
@@ -7,7 +8,8 @@
     $ cd pre-onboarding-12th-1-11
     $ npm install
     $ npm start
-    ``` 
+    ```
+
 
 ## 🎯 목표 설정하기 
 * 지난 개인 과제에서 느꼈던 [아쉬운 점](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend#-%EC%95%84%EC%89%AC%EC%9B%80%EC%9C%BC%EB%A1%9C-%EB%82%A8%EC%9D%80-%EC%82%AC%ED%95%AD%EB%93%A4)들을 이번 과제에서 해결하면서, 코드를 리팩토링하는 것으로 목표로 잡았습니다. 
