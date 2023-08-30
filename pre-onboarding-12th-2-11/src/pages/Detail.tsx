@@ -1,8 +1,5 @@
 const Detail = () => {
-  return (
-    <>
-    </>
-  )
-}
+    return <></>;
+};
 
-export default Detail
+export default Detail;

@@ -1,8 +1,5 @@
 const List = () => {
-  return (
-    <>
-    </>
-  )
-}
+    return <></>;
+};
 
-export default List
+export default List;
