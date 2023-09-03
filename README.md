@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -85,14 +86,19 @@ This section has moved here:
 This section has moved here:
 [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 =======
+
 # wanted-pre-onboarding-frontend-projects
-원티드 프리 온보딩에서 진행한 기업 과제를 모아 놓은 리포지토리입니다. 
+
+원티드 프리 온보딩에서 진행한 기업 과제를 모아 놓은 리포지토리입니다.
 
 ## 1주차 프로젝트: Todo best practice 만들기
-* 파일명: pre-onboarding-12th-1-11
-* 리드미 [바로가기](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend-projects/blob/main/pre-onboarding-12th-1-11/README.md)
+
+-   파일명: pre-onboarding-12th-1-11
+-   리드미
+    [바로가기](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend-projects/blob/main/pre-onboarding-12th-1-11/README.md)
 
 ## 2주차 프로젝트: Github react repository issue 목록 조회 앱 만들기
-* 파일명: pre-onboarding-12th-2-11
-* 리드미 
->>>>>>> f0587dc48dc776f390f2d6f87da428b581fb6a3f
+
+-   파일명: pre-onboarding-12th-2-11
+-   리드미
+    > > > > > > > f0587dc48dc776f390f2d6f87da428b581fb6a3f
