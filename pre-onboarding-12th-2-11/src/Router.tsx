@@ -4,17 +4,19 @@ import List from 'pages/List';
 import NotFound from 'pages/NotFound';
 import {createBrowserRouter} from 'react-router-dom';
 
+import {PATH} from 'constants/apis';
+
 export const Router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
         children: [
             {
-                path: '/list',
+                path: PATH,
                 element: <List />,
             },
             {
-                path: '/detail',
+                path: `${PATH}/:id`,
                 element: <Detail />,
             },
         ],

@@ -1,63 +1,57 @@
+// import react, styles
+import {memo, useEffect} from 'react';
 import * as S from 'styles/Issue.styled';
+// import component
 import IssueItem from 'components/IssueItem';
 import ListAd from 'components/ListAd';
 import Tag from 'components/Tag';
-import { useInfiniteScroll } from 'hooks/useIntersectionObserver';
-import { useRef, useState } from 'react';
-import { getIssuesList } from 'apis/issues';
 import LoadingSpinner from 'components/LoadingSpinner';
-import { memo } from 'react';
-
-import { issueListState } from 'recoil/atoms';
-import { useRecoilState } from 'recoil';
+// import custom hooks
+import {useAxios} from 'hooks/useFetchData';
+import {useInfiniteScroll} from 'hooks/useIntersectionObserver';
+import {useGetNextPage} from 'hooks/useNextPage';
+// import recoil, atoms
+import {pageLastNumberState} from 'recoil/atoms';
+import {useSetRecoilState} from 'recoil';
 
 const ListContainer = () => {
-  const [latestData, setLatestData] = useRecoilState(issueListState);
-  const [pending, setPending] = useState(false);
+    const {fetchDataState, fetchData} = useAxios();
+    const {loading, fetching, error, data} = fetchDataState;
 
-  const pageRef = useRef(0);
+    const setLastPageNumber = useSetRecoilState(pageLastNumberState);
 
-  const fetchData = async () => {
-    setPending(false);
-    const response = await getIssuesList(pageRef.current);
-    setLatestData((prev) => [...prev, ...response.data]);
-    setPending(true);
-  };
+    const params = {pageNumber: 1, sort: 'comments'};
 
-  const moreFetchData = async () => {
-    if (pending) return;
-    pageRef.current = pageRef.current + 1;
+    useEffect(() => {
+        fetchData({params}).then(res => {
+            const linkHeader = res?.headers.link;
+            const links = linkHeader.split(',');
 
-    console.info(pageRef.current); // 제거 예정
-    console.info(pending)
+            const lastPageLink = links.find((link: string) => link.includes('rel="last"'));
+            const lastPage = /page=(\d+)/.exec(lastPageLink);
 
-    await fetchData();
-  }
+            if (lastPage) setLastPageNumber(Number(lastPage[1]));
+        });
+    }, []); // 의존성 배열 수정 필요
 
-  const scrollRef = useInfiniteScroll(moreFetchData);
+    const scrollRef = useInfiniteScroll(useGetNextPage);
 
-  console.info('ListContainer render'); // 뒤로가기로 와도 리렌더링됨
+    if (loading) return <>컨테이너 로딩중</>;
+    if (error) return <>에러</>;
 
-  return (
-    <S.ListContainerStyled>
-      <Tag>Issues List</Tag>
-      {latestData.map((data, index) => (
-        <div key={index}>
-          < IssueItem
-            number={data.number}
-            title={data.title}
-            userName={data.user.login}
-            createdAt={data.created_at}
-            comments={data.comments}
-          />
-          {(index + 1) % 4 === 0 && <ListAd />}
-        </div>
-      ))}
-      {pending && <LoadingSpinner />}
-      <div className='scroll-ref' ref={scrollRef} />
-
-    </S.ListContainerStyled >
-  )
+    return (
+        <S.ListContainerStyled>
+            <Tag>Issues List</Tag>
+            {data.map((issue, index) => (
+                <div key={index}>
+                    <IssueItem issue={issue} />
+                    {(index + 1) % 4 === 0 && <ListAd />}
+                </div>
+            ))}
+            {fetching && <LoadingSpinner />}
+            <div className='scroll-ref' ref={scrollRef} />
+        </S.ListContainerStyled>
+    );
 };
 
 export default memo(ListContainer);

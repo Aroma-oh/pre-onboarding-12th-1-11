@@ -1,5 +1,5 @@
 const NotFound = () => {
-    return <></>;
+    return <>NotFound</>;
 };
 
 export default NotFound;

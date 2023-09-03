@@ -1,5 +1,10 @@
+import ListContainer from 'containers/ListContainer';
 const List = () => {
-    return <></>;
+    return (
+        <>
+            <ListContainer />
+        </>
+    );
 };
 
 export default List;
