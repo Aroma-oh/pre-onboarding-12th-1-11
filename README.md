@@ -76,7 +76,7 @@
         return <S.AuthErrorMessageStyled>{message}</S.AuthErrorMessageStyled>;
     });
     ```
--   다만 기존 Button의 경우, click 이벤트가 handleSubmit 함수를 가지고 있어서 input에 따른 email, password 변경으로붙터 자유롭지 못했습니다. (submit을 통한 API 요청시 email, password를 함께 보내야 했기 때문입니다.)
+-   다만 기존 Button의 경우, click 이벤트가 handleSubmit 함수를 가지고 있어서 input에 따른 email, password 변경으로부터 자유롭지 못했습니다. (submit을 통한 API 요청시 email, password를 함께 보내야 했기 때문입니다.)
 -   해결을 위해 React에서 제공하는 메모이제이션 훅을 사용하는 대신, handleSubmit 함수를 form 태그로 이동시켜 Button 컴포넌트를 email, password 상태로부터 분리시켰습니다.
 -   리렌더링을 확인하기 위해 React Dev Tools를 이용하고자 했으나 해당 툴의 버그가 확인되어, console.info를 이용하여 디버깅을 했습니다.
 -   렌더링 최적화를 진행하며 느낀점은, 불필요한 리렌더링을 잡기 위해서는 로직을 확실하게 이해하고 있는 것이 필수라고 생각 되었습니다. 리렌더링이 어떤 요인에 의해 발생하고, 어느 컴포넌트에서 잡아주어야 하며, 무지성으로 메모이제이션 방법을 사용하는 것보다 더 적합한 방법은 없을지 먼저 고민해보는 태도의 중요성을 느꼈습니다.
